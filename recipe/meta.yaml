@@ -1,5 +1,5 @@
 {% set name = "caustics" %}
-{% set version = "0.11.2" %}
+{% set version = "0.12.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/caustics-{{ version }}.tar.gz
-  sha256: a6e10eb42ce426e0d5d8577cdb765640ea8443aa28a5f47635889a23df4b32e8
+  sha256: 7d31e3d0b49d2cb0ec9ac4182ddc7aaec761eb5604fa416b95968badc8c9e091
 
 build:
   noarch: python
