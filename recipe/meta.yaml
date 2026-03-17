@@ -6,23 +6,23 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/caustics-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/caustics-{{ version }}.tar.gz
   sha256: 7d31e3d0b49d2cb0ec9ac4182ddc7aaec761eb5604fa416b95968badc8c9e091
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.9
+    - python {{ python_min }}
     - hatchling
     - hatch-requirements-txt
     - hatch-vcs
     - pip
   run:
-    - python >=3.9
+    - python >={{ python_min }}
     - pytorch >=2.0.0
     - astropy <6.0.0,>=5.2.1
     - python-graphviz ==0.20.1
@@ -42,6 +42,7 @@ test:
     - python -c "import caustics; assert caustics.__version__ != '0.0.0'; caustics.test()"
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/Ciela-Institute/caustics
